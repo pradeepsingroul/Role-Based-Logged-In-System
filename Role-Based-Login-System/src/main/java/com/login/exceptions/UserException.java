@@ -1,5 +1,12 @@
 package com.login.exceptions;
 
-public class UserException {
+public class UserException extends RuntimeException{
 
+	public UserException() {
+		super();
+	}
+	public UserException(String message) {
+		super(message);
+	}
+	
 }
