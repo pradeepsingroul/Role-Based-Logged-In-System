@@ -2,8 +2,8 @@ package com.login.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.login.Entity.User;
+import com.login.Entity.Role;
 
-public interface UserRepository  extends JpaRepository<User, Long>{
+public interface RoleRepository extends JpaRepository<Role, Long>{
 
 }
