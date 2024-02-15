@@ -1,6 +1,6 @@
 package com.login.Entity;
 
-public enum UserRole {
+public enum RoleType {
 	ADMIN,
     MANAGER,
     EMPLOYEE,
