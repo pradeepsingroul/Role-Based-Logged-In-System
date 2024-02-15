@@ -8,9 +8,9 @@ import com.login.exceptions.UserException;
 
 public interface UserServices {
 	
-	User createUser(String name, String password, List<Role> roles) throws UserException;
+	User createUser(User user) throws UserException;
 	List<User> getAllUsers()throws UserException;
-	User getUserByName(String name) throws UserException;
+	User getUserByEmail(String email) throws UserException;
 	User getUserById(Long id) throws UserException;
 	User deleteUserById(Long id) throws UserException;
 	User updateUser(User user) throws UserException;

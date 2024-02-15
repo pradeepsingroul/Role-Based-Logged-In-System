@@ -12,7 +12,7 @@ import com.login.exceptions.RoleException;
 public class RoleServiceImpl implements RoleServices{
 
 	@Override
-	public Role createRole(RoleType name) throws RoleException {
+	public Role createRole(Role role) throws RoleException {
 		// TODO Auto-generated method stub
 		return null;
 	}

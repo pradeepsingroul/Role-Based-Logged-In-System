@@ -9,7 +9,7 @@ import com.login.exceptions.RoleException;
 
 public interface RoleServices {
 
-	Role createRole(RoleType name) throws RoleException;
+	Role createRole(Role role) throws RoleException;
 
 	List<Role> getAllRoles()throws RoleException;
 
