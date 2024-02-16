@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.login.DTO.LoginDTO;
 import com.login.Entity.User;
 import com.login.exceptions.UserException;
 import com.login.repository.UserRepository;
@@ -72,6 +72,17 @@ public class UserServicesImpl  implements UserServices{
 		if(opt.isEmpty()) throw new UserException("User does not exist with the email: "+user.getEmail());
 		else {
 			return uRepo.save(user);
+		}
+	}
+
+	@Override
+	public User loginUser(LoginDTO login) throws UserException {
+		Optional<User> opt = uRepo.findByEmailAndPassword(login.getEmail(),login.getPassword());
+		if(opt.isEmpty()) {
+			throw new UserException("You entered wrong creadential....");
+		}else {
+			User us = opt.get();
+			return us;
 		}
 	}
 
