@@ -26,5 +26,7 @@ public class Role {
     @Column(unique = true)
     private RoleType name;
     
+    
+    
    
 }

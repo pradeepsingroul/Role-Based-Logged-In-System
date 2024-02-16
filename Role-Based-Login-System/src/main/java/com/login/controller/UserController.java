@@ -27,18 +27,19 @@ public class UserController {
 	
 	@PostMapping("/users/new")
 	public ResponseEntity<User> createNewUser(@RequestBody User user){
+		System.out.println("I am new....");
 		User user1 = uServices.createUser(user);
 		return new ResponseEntity<User>(user1, HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/users/{email}")
-	public ResponseEntity<User> UserByEmail(@RequestParam("email") String email){
+	@GetMapping("/usersByEmail/{email}")
+	public ResponseEntity<User> UserByEmail(@PathVariable("email") String email){
 		User user = uServices.getUserByEmail(email);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> UserByEmail(@PathVariable("id") Long id){
+	public ResponseEntity<User> UserById(@PathVariable("id") Long id){
 		User user = uServices.getUserById(id);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}

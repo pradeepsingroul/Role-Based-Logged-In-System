@@ -2,7 +2,7 @@ package com.login.Entity;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.CascadeType; 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -41,7 +41,6 @@ public class User {
 	    private boolean active;
 	
 	    @OneToMany(cascade = CascadeType.ALL)
-	    @Enumerated(EnumType.STRING)
-	    private List<RoleType> role;
+	    private List<Role> role;
 
 }
