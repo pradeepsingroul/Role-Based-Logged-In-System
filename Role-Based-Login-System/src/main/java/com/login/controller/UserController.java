@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.login.DTO.LoginDTO;
 import com.login.Entity.User;
 import com.login.services.UserServices;
 
@@ -30,6 +31,13 @@ public class UserController {
 		System.out.println("I am new....");
 		User user1 = uServices.createUser(user);
 		return new ResponseEntity<User>(user1, HttpStatus.CREATED);
+	}
+	
+	
+	@GetMapping("/user/login")
+	public ResponseEntity<User> LoginController(@RequestBody LoginDTO login){
+		User user = uServices.loginUser(login);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
 	@GetMapping("/usersByEmail/{email}")
