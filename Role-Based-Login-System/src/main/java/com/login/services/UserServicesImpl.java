@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.login.Entity.Role;
+
 import com.login.Entity.User;
 import com.login.exceptions.UserException;
 import com.login.repository.UserRepository;
@@ -61,8 +61,8 @@ public class UserServicesImpl  implements UserServices{
 		if(opt.isEmpty()) throw new UserException("User does not exist with the Id: "+id);
 		else {
 			User user = opt.get();
-			uRepo.deleteById(id);
-			return user;
+			user.setActive(false);
+			return uRepo.save(user);
 		}
 	}
 
