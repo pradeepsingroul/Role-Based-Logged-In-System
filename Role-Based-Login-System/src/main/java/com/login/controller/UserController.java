@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ import com.login.Entity.User;
 import com.login.services.UserServices;
 
 @RestController
+@RequestMapping("/api/v3")
 public class UserController {
 	
 	@Autowired
@@ -32,13 +34,13 @@ public class UserController {
 	@GetMapping("/users/{email}")
 	public ResponseEntity<User> UserByEmail(@RequestParam("email") String email){
 		User user = uServices.getUserByEmail(email);
-		return new ResponseEntity<User>(user, HttpStatus.CREATED);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> UserByEmail(@PathVariable("id") Long id){
 		User user = uServices.getUserById(id);
-		return new ResponseEntity<User>(user, HttpStatus.CREATED);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
 	
@@ -57,7 +59,7 @@ public class UserController {
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getAllUsersEntity(){
 		List<User> users = uServices.getAllUsers();
-		return new ResponseEntity<List<User>>(users, HttpStatus.ACCEPTED);
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 	
 	
