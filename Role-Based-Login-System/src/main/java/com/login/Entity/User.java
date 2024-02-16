@@ -2,6 +2,7 @@ package com.login.Entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,6 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,8 +38,9 @@ public class User {
 
 	    private String password;
 
-	    private boolean enabled;
+	    private boolean active;
 	
+	    @OneToMany(cascade = CascadeType.ALL)
 	    @Enumerated(EnumType.STRING)
 	    private List<RoleType> role;
 

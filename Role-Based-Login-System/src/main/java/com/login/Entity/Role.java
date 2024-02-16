@@ -23,6 +23,7 @@ public class Role {
     private Long id;
 
     @Enumerated(EnumType.STRING)
+    @Column(unique = true)
     private RoleType name;
     
    
